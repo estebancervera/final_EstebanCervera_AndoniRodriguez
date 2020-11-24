@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.cerverae.calidad</groupId>
-  <artifactId>my-app</artifactId>
+  <groupId>com.mayab.calidad</groupId>
+  <artifactId>parcial2</artifactId>
   <packaging>jar</packaging>
   <version>-DinteractiveMode=false</version>
-  <name>my-app</name>
+  <name>parcial2</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>

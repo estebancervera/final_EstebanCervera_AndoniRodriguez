@@ -24,9 +24,7 @@ public class AlumnoDaoOracleSQL implements DAO {
 	        }catch(Exception e){System.out.println(e);}  
 	        return con;  
 	        
-		
-   
-        	
+	
   
 	}
 	
