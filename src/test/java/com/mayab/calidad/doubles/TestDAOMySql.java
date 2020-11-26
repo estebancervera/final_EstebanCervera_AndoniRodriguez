@@ -127,5 +127,33 @@ public class TestDAOMySql {
 		
 		assertThat(cal, is(alumno.getGrade()));
 	}
+	
+	@Test
+	public void testGetAlumno() {
+		
+		when(database.getAlumno(anyInt() )).thenAnswer(new Answer<Alumno>() {
+			
+			public Alumno answer(InvocationOnMock invocation) throws Throwable {
+			 
+			 int arg = (Integer) invocation.getArguments()[0];
+			 
+			 if(database.getDatabase().containsKey(arg)) {
+				 Alumno alumno = database.getDatabase().get(arg); 
+				 return alumno;
+			 }
+			 
+			 
+			 	return null;
+			}
+			
+		});
+		
+	
+		
+		database.addAlumno(alumno);
+		Alumno aExpected = database.getAlumno(alumno.getId());
+		
+		assertThat(aExpected, is(database.getDatabase().get(alumno.getId())));
+	}
 
 }

@@ -91,36 +91,36 @@ public class TestUpdateMERN {
     pause(2000);
     
     
-    //String msg = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/form/div[4]/div/p")).getText();
-    //assertEquals(msg, "Successfully updated!");
+    String msg = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/form/div[4]/div/p")).getText();
+    assertEquals(msg, "Successfully updated!");
     
-    // La ventana de chrome debe estar lo suficiente mente delgada para que salga la tacha en la tarjeta de modificacion.
-    driver.findElement(By.xpath("/html/body/div[2]/div/i")).click();
-	
-    WebElement tableCheck = driver.findElement(By.xpath("/html/body/div/div/div[2]/table"));
-    pause(2000);
-    List<WebElement> rowsCheck = tableCheck.findElements(By.tagName("tr"));
-   
-    String[] expectedValuesAfter = {"Andres", "test2@gmail.com", "", ""};
-    
-    for(int i = 1; i < rowsCheck.size(); i++) {
-    	
-    	List<WebElement> columnsCheck = rowsCheck.get(i).findElements(By.tagName("td"));
-   
-    	for(int j = 0; j < columnsCheck.size()-1; j++) {
-    		actualValues[j] = columnsCheck.get(j).getText();
-    		System.out.println("i: " + i +  ",j: " + j + "---" + actualValues[j] ) ;
-    	}
-    	
-    	if(Arrays.equals(expectedValuesAfter, actualValues)) {
-    		break;
-    	}
-    	
-    }
-    
-    for(int i = 0; i < expectedValuesAfter.length; i++) {
-    	assertEquals(expectedValuesAfter[i], actualValues[i]);
-    	}
+//    // La ventana de chrome debe estar lo suficiente mente delgada para que salga la tacha en la tarjeta de modificacion.
+//    driver.findElement(By.xpath("/html/body/div[2]/div/i")).click();
+//	
+//    WebElement tableCheck = driver.findElement(By.xpath("/html/body/div/div/div[2]/table"));
+//    pause(2000);
+//    List<WebElement> rowsCheck = tableCheck.findElements(By.tagName("tr"));
+//   
+//    String[] expectedValuesAfter = {"Andres", "test2@gmail.com", "", ""};
+//    
+//    for(int i = 1; i < rowsCheck.size(); i++) {
+//    	
+//    	List<WebElement> columnsCheck = rowsCheck.get(i).findElements(By.tagName("td"));
+//   
+//    	for(int j = 0; j < columnsCheck.size()-1; j++) {
+//    		actualValues[j] = columnsCheck.get(j).getText();
+//    		System.out.println("i: " + i +  ",j: " + j + "---" + actualValues[j] ) ;
+//    	}
+//    	
+//    	if(Arrays.equals(expectedValuesAfter, actualValues)) {
+//    		break;
+//    	}
+//    	
+//    }
+//    
+//    for(int i = 0; i < expectedValuesAfter.length; i++) {
+//    	assertEquals(expectedValuesAfter[i], actualValues[i]);
+//    	}
 
     
   }
