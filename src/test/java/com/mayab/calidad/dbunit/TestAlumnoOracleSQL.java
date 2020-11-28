@@ -184,30 +184,30 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 	}
 	
 	
-	//GET ALL COUNT TEST
-	
-	@Test
-	public void testGetAllCount() {
-		
-		AlumnoDaoMySQL daoOracle = new AlumnoDaoMySQL();
-		
-		
-		IDatabaseConnection connection;
-		
-		try {
-			
-			connection = getConnection();
-			
-			int actualRows = connection.getRowCount("alumno");
-			int expectedResult = daoOracle.getAllAlumnosCount();
-			assertEquals(actualRows, expectedResult);
-			connection.close();
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-	}
+//	//GET ALL COUNT TEST
+//	
+//	@Test
+//	public void testGetAllCount() {
+//		
+//		AlumnoDaoMySQL daoOracle = new AlumnoDaoMySQL();
+//		
+//		
+//		IDatabaseConnection connection;
+//		
+//		try {
+//			
+//			connection = getConnection();
+//			
+//			int actualRows = connection.getRowCount("alumno");
+//			int expectedResult = daoOracle.getAllAlumnosCount();
+//			assertEquals(actualRows, expectedResult);
+//			connection.close();
+//			
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		}
+//	}
 	
 	
 	//UPDATE TEST
