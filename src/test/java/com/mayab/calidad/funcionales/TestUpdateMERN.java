@@ -107,7 +107,9 @@ public class TestUpdateMERN {
     assertEquals(msg, "Successfully updated!");
     
     if (msg.equals("Successfully updated!")){
+    	System.out.println("UPDATE PASO");
 	      ((JavascriptExecutor)driver).executeScript("sauce:job-result=passed");
+	     
 	    }
 	    else {
 	      ((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");

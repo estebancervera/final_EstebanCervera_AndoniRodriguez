@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -61,7 +62,7 @@ public class TestAddMERN {
 	    // EMAIL
 	    driver.findElement(By.name("email")).click();
 	    driver.findElement(By.name("email")).clear();
-	    driver.findElement(By.name("email")).sendKeys("test@gmail.com");
+	    driver.findElement(By.name("email")).sendKeys("test2@gmail.com");
 	    
 	    // AGE
 	    driver.findElement(By.name("age")).click();
@@ -81,7 +82,13 @@ public class TestAddMERN {
 	    //VERIFY
 	    String text = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/form/div[4]/div/div")).getText();
 	    assertEquals(text, "Nice one!");
-	    
+	    if (text.equals("Nice one!")){
+		      ((JavascriptExecutor)driver).executeScript("sauce:job-result=passed");
+		    }
+		    else {
+		      ((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");
+		    }
+		driver.quit();
 	    
 	  }
 	  
