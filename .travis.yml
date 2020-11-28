@@ -4,8 +4,8 @@ addons:
     username: "esteban_cervera"
     access_key: "0706ac1c-19d9-450a-a786-a5f40767e103"
 before_script:
-  "export DISPLAY=:99.0"
-  "sh -e /etc/init.d/xvfb start"
-  sleep 3 # give xvfb some time to start
-  rackup # start a Web server
-  sleep 3 # give Web server some time to bind to sockets, etc
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - rackup # start a Web server
+  - sleep 3 # give Web server some time to bind to sockets, etc
