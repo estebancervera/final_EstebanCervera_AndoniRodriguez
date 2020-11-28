@@ -1,16 +1,16 @@
-# Create Testuser
+
 CREATE USER 'dev'@'localhost' IDENTIFIED BY 'dev';
 GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'dev'@'localhost';
-# Create DB
-CREATE DATABASE IF NOT EXISTS `alumno` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE DATABASE IF NOT EXISTS `alumno` ;
 USE `alumno`;
-# Create Table
+
 CREATE TABLE IF NOT EXISTS `alumno` (
   `id` NUMBER NOT NULL,
   `name` VARCHAR2(50) NOT NULL,
   `age` NUMBER NOT NULL,
   `grade` NUMBER NOT NULL,
   `email` VARCHAR2(50) NOT NULL,
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 ALTER TABLE `alumno`
   ADD PRIMARY KEY (`id`);
