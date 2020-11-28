@@ -36,7 +36,7 @@ public class AlumnoDaoMySQL implements DAO {
 		
 		try {
 			preparedStatement = connection.prepareStatement("insert INTO alumno(id, name, age, grade, email) values (?, ?, ?, ?, ?)");
-			
+	
 			preparedStatement.setInt(1, a.getId());
 			preparedStatement.setString(2, a.getName());
 			preparedStatement.setInt(3, a.getAge());

@@ -18,7 +18,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class TestRetrieveMERN {
+public class TestRetrieveMERN  {
 	  private WebDriver driver;
 	  private StringBuffer verificationErrors = new StringBuffer();
 	  public static final String URL = "https://esteban_cervera:0706ac1c-19d9-450a-a786-a5f40767e103@ondemand.us-west-1.saucelabs.com:443/wd/hub";
@@ -34,6 +34,10 @@ public class TestRetrieveMERN {
 		    caps.setCapability("extendedDebugging", "true");
 		    caps.setCapability("buildNumber", "3.0");
 		    driver = new RemoteWebDriver(new java.net.URL(URL), caps);
+		    
+		    //TestAddMERN add = new TestAddMERN();
+		    //add.testAddMern();
+		    
 		    
 	    //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  }
@@ -51,11 +55,40 @@ public class TestRetrieveMERN {
 	  @Test
 	  public void testRetrieveMern() throws Exception {
 		
-		String[] expectedValues = {"Esteban", "test@gmail.com", "35", "m"};
+		String[] expectedValues = {"Esteban", "test2@gmail.com", "35", "m"};
 		
 		String[] actualValues = new String[4];
 		
-		driver.get("https://mern-crud.herokuapp.com/");
+		 driver.get("https://mern-crud.herokuapp.com/");
+		    
+//		    // BUTTON
+//		    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
+//		    
+//		    // NAME
+//		    driver.findElement(By.name("name")).click();
+//		    driver.findElement(By.name("name")).clear();
+//		    driver.findElement(By.name("name")).sendKeys("Esteban");
+//		    
+//		    // EMAIL
+//		    driver.findElement(By.name("email")).click();
+//		    driver.findElement(By.name("email")).clear();
+//		    driver.findElement(By.name("email")).sendKeys("test@gmail.com");
+//		    
+//		    // AGE
+//		    driver.findElement(By.name("age")).click();
+//		    driver.findElement(By.name("age")).clear();
+//		    driver.findElement(By.name("age")).sendKeys("35");
+//		    
+//		    //GENDER
+//		    driver.findElement(By.xpath("//div[3]/div[2]/div/i")).click();
+//		    driver.findElement(By.xpath("//div[2]/div/div[2]/div")).click();
+//		    
+//		    // BUTTON
+//		    driver.findElement(By.xpath("//form/button")).click();
+//		    
+//		    pause(2000);
+		    
+		    
 		
 	    WebElement table = driver.findElement(By.xpath("/html/body/div/div/div[2]/table"));
 	    pause(2000);

@@ -82,8 +82,10 @@ public class TestAddMERN {
 	    //VERIFY
 	    String text = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/form/div[4]/div/div")).getText();
 	    assertEquals(text, "Nice one!");
-	    if (text.equals("Nice one!")){
+	    if (text.equals( "Nice one!")){
+	    	System.out.println("UPDATE PASO");
 		      ((JavascriptExecutor)driver).executeScript("sauce:job-result=passed");
+		     
 		    }
 		    else {
 		      ((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");
