@@ -1,4 +1,6 @@
 language: java
+services:
+  - xvfb
 addons:
   sauce_connect:
     username: "esteban_cervera"
