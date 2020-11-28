@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -43,6 +44,17 @@ public class TestAddMERN {
 		  }catch(Exception e){
 			  e.printStackTrace();
 		  }
+	  }
+	  
+	  public void deleteUser() {
+		  driver.get("https://mern-crud.herokuapp.com/");
+			// TABLE
+		    WebElement table = driver.findElement(By.xpath("/html/body/div/div/div[2]/table"));
+		    pause(2000);
+		    driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[1]/td[5]/button[2]")).click();
+		    pause(1000);
+		    driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]")).click();
+		    pause(2000);
 	  }
 
 	//ADD TEST
@@ -90,6 +102,8 @@ public class TestAddMERN {
 		    else {
 		      ((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");
 		    }
+	    
+	    deleteUser();
 		driver.quit();
 	    
 	  }

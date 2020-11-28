@@ -10,11 +10,3 @@ before_script:
   - "export DISPLAY=:99.0"
 before_install:
   - mysql -u root --password="" < scripts/setup.sql
-jobs:
-  include:
-    - stage: unit
-      script: ./src/test/java/com/mayab/calidad/funcionales/TestDAOMySql.java
-    - stage: integration
-      script: ./src/test/java/com/mayab/calidad/funcionales/TestAlumnoOracleSQL.java
-    - stage: functional
-      script: ./src/test/java/com/mayab/calidad/funcionales/AllTests.java

@@ -47,12 +47,46 @@ public class TestDeleteMERN {
 	  }
 
 
+	  public void addUser() {
+		  driver.get("https://mern-crud.herokuapp.com/");
+		    
+		    // BUTTON
+		    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
+		    
+		    // NAME
+		    driver.findElement(By.name("name")).click();
+		    driver.findElement(By.name("name")).clear();
+		    driver.findElement(By.name("name")).sendKeys("Esteban");
+		    
+		    // EMAIL
+		    driver.findElement(By.name("email")).click();
+		    driver.findElement(By.name("email")).clear();
+		    driver.findElement(By.name("email")).sendKeys("test2@gmail.com");
+		    
+		    // AGE
+		    driver.findElement(By.name("age")).click();
+		    driver.findElement(By.name("age")).clear();
+		    driver.findElement(By.name("age")).sendKeys("35");
+		    
+		    //GENDER
+		    driver.findElement(By.xpath("//div[3]/div[2]/div/i")).click();
+		    driver.findElement(By.xpath("//div[2]/div/div[2]/div")).click();
+		    
+		    // BUTTON
+		    driver.findElement(By.xpath("//form/button")).click();
+		    
+		    // WAIT FOR ALERT
+		    pause(3000);
+	  }
 	  
 	  // DELETE TEST
 	  
 	  @Test
 	  public void testDeleteMern() throws Exception {
 
+		addUser();
+		  
+		  
 		driver.get("https://mern-crud.herokuapp.com/");
 		// TABLE
 	    WebElement table = driver.findElement(By.xpath("/html/body/div/div/div[2]/table"));

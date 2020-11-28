@@ -46,14 +46,57 @@ public class TestUpdateMERN {
 	  }
   }
   
+  public void addUser() {
+	  driver.get("https://mern-crud.herokuapp.com/");
+	    
+	    // BUTTON
+	    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
+	    
+	    // NAME
+	    driver.findElement(By.name("name")).click();
+	    driver.findElement(By.name("name")).clear();
+	    driver.findElement(By.name("name")).sendKeys("Esteban");
+	    
+	    // EMAIL
+	    driver.findElement(By.name("email")).click();
+	    driver.findElement(By.name("email")).clear();
+	    driver.findElement(By.name("email")).sendKeys("test4@gmail.com");
+	    
+	    // AGE
+	    driver.findElement(By.name("age")).click();
+	    driver.findElement(By.name("age")).clear();
+	    driver.findElement(By.name("age")).sendKeys("35");
+	    
+	    //GENDER
+	    driver.findElement(By.xpath("//div[3]/div[2]/div/i")).click();
+	    driver.findElement(By.xpath("//div[2]/div/div[2]/div")).click();
+	    
+	    // BUTTON
+	    driver.findElement(By.xpath("//form/button")).click();
+	    
+	    // WAIT FOR ALERT
+	    pause(3000);
+  }
   
+  public void deleteUser() {
+	  driver.get("https://mern-crud.herokuapp.com/");
+		// TABLE
+	    WebElement table = driver.findElement(By.xpath("/html/body/div/div/div[2]/table"));
+	    pause(2000);
+	    driver.findElement(By.xpath("/html/body/div/div/div[2]/table/tbody/tr[1]/td[5]/button[2]")).click();
+	    pause(1000);
+	    driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]")).click();
+	    pause(2000);
+  }
 
  
   //UPDATE
   @Test
   public void testUpdateMern() throws Exception {
 	  
-	String[] expectedValuesBefore = {"Esteban", "test@gmail.com", "35", "m"};
+	  addUser();
+	  
+	String[] expectedValuesBefore = {"Esteban", "test4@gmail.com", "35", "m"};
 		
 	String[] actualValues = new String[4];
 	
@@ -92,7 +135,7 @@ public class TestUpdateMERN {
     //EMAIL
     driver.findElement(By.name("email")).click();
     driver.findElement(By.name("email")).clear();
-    driver.findElement(By.name("email")).sendKeys("test2@gmail.com");
+    driver.findElement(By.name("email")).sendKeys("test5@gmail.com");
 
     
     //GENDER
@@ -114,6 +157,9 @@ public class TestUpdateMERN {
 	    else {
 	      ((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");
 	    }
+    
+    deleteUser();
+    
 	driver.quit();
     
 //    // La ventana de chrome debe estar lo suficiente mente delgada para que salga la tacha en la tarjeta de modificacion.
