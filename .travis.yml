@@ -8,5 +8,5 @@ addons:
     access_key: "0706ac1c-19d9-450a-a786-a5f40767e103"
 before_script:
   - "export DISPLAY=:99.0"
-  before_install:
+before_install:
   - mysql -u root --password="" < scripts/setup.sql
