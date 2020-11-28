@@ -35,19 +35,24 @@ public class TestAppium {
   }
   
   private String getOperation(String operation) {
-	  switch (operation) {
-	  case "+":
+	 
+	  if(operation.equals("+")) {
 		  return "Add";
-	  case "-":
+	  }else if (operation.equals("-")) {
 		  return "Sub";
-	  case "*":
+	  }else if(operation.equals("*")) {
 		  return "Mul";
-	  case "/":
+	  }else if (operation.equals("/")){
 		  return "Div";
-	  case "sqrt":
+		  
+	  }else if (operation.equals("sqrt")) {
 		  return "Sqrt";
+		  
+	  }else {
+		  return "";
+		  
 	  }
-	  return "";
+	  
   }
   
   private String getButtonName(char character) {
