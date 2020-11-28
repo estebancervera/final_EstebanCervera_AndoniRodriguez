@@ -34,7 +34,7 @@ public class TestUpdateMERN {
 	    caps.setCapability("buildNumber", "3.0");
 	    driver = new RemoteWebDriver(new java.net.URL(URL), caps);
 	    
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
   
   private void pause(long mils) {
