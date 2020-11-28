@@ -11,6 +11,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -104,6 +105,14 @@ public class TestUpdateMERN {
     
     String msg = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/form/div[4]/div/p")).getText();
     assertEquals(msg, "Successfully updated!");
+    
+    if (msg.equals("Successfully updated!")){
+	      ((JavascriptExecutor)driver).executeScript("sauce:job-result=passed");
+	    }
+	    else {
+	      ((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");
+	    }
+	driver.quit();
     
 //    // La ventana de chrome debe estar lo suficiente mente delgada para que salga la tacha en la tarjeta de modificacion.
 //    driver.findElement(By.xpath("/html/body/div[2]/div/i")).click();

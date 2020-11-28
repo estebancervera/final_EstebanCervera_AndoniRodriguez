@@ -11,6 +11,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -78,6 +79,13 @@ public class TestRetrieveMERN {
 	    
 	    for(int i = 0; i < expectedValues.length; i++) {
 	    	assertEquals(expectedValues[i], actualValues[i]);
+	    	if (expectedValues[i] == actualValues[i]){
+			      ((JavascriptExecutor)driver).executeScript("sauce:job-result=passed");
+			    }
+			    else {
+			      ((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");
+			    }
+			driver.quit();
 	    }
 	    
 	  }

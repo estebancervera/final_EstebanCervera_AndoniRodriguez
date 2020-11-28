@@ -10,6 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -64,6 +65,15 @@ public class TestDeleteMERN {
 	    List<WebElement> rows_after_delete = table.findElements(By.tagName("tr"));
 	    // VERIFY
 	    assertEquals(rows_after_delete.size(), rows_before_delete.size()-1);
+	    
+	    if (rows_after_delete.size() == rows_before_delete.size()-1){
+		      ((JavascriptExecutor)driver).executeScript("sauce:job-result=passed");
+		    }
+		    else {
+		      ((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");
+		    }
+		driver.quit();
+	    
 	  }
 	  
 	  @After
