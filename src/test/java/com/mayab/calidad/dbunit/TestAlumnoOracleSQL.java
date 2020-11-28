@@ -24,10 +24,10 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 	
 	public TestAlumnoOracleSQL(String name) {
 		super(name);
-		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "oracle.jdbc.driver.OracleDriver");
-		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:oracle:thin:@localhost:1521:xe");
-		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "dbunit");
-		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "dbunit");	
+		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver");
+		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:mysql://127.0.0.1:3306/alumno");
+		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "travis");
+		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "");	
 	}
 	
 	@Before
@@ -54,7 +54,7 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 	@Test
 	public void testInsert() {
 		Alumno alumno = new Alumno(4, "Esteban C", 23, 9, "esteban@gmail.com");
-		AlumnoDaoOracleSQL daoMySQL = new AlumnoDaoOracleSQL();
+		AlumnoDaoMySQL daoMySQL = new AlumnoDaoMySQL();
 		
 		daoMySQL.addAlumno(alumno);
 		
@@ -84,7 +84,7 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 	public void testInsertCount() {
 		
 		Alumno alumno = new Alumno(5, "Esteban 5", 25, 10, "esteban@gmail.com");
-		AlumnoDaoOracleSQL daoOracle = new AlumnoDaoOracleSQL();
+		AlumnoDaoMySQL daoOracle = new AlumnoDaoMySQL();
 		
 		IDatabaseConnection connection;
 		
@@ -108,7 +108,7 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 	@Test
 	public void testDelete() {
 		Alumno alumno = new Alumno(2, "Esteban 2", 22, 9, "esteban@gmail.com");
-		AlumnoDaoOracleSQL daoMySQL = new AlumnoDaoOracleSQL();
+		AlumnoDaoMySQL daoMySQL = new AlumnoDaoMySQL();
 		
 		daoMySQL.deleteAlumno(alumno);
 		
@@ -139,7 +139,7 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 	public void testDeleteCount() {
 		
 		Alumno alumno = new Alumno(3, "Esteban 3", 23, 10, "esteban@gmail.com");
-		AlumnoDaoOracleSQL daoOracle = new AlumnoDaoOracleSQL();
+		AlumnoDaoMySQL daoOracle = new AlumnoDaoMySQL();
 		
 		daoOracle.getAlumno(alumno.getId());
 		IDatabaseConnection connection;
@@ -189,7 +189,7 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 	@Test
 	public void testGetAllCount() {
 		
-		AlumnoDaoOracleSQL daoOracle = new AlumnoDaoOracleSQL();
+		AlumnoDaoMySQL daoOracle = new AlumnoDaoMySQL();
 		
 		
 		IDatabaseConnection connection;
@@ -215,7 +215,7 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 	@Test
 	public void testUpdate() {
 		Alumno alumno = new Alumno(3, "Esteban 3", 23, 10, "esteban@gmail.com");
-		AlumnoDaoOracleSQL daoMySQL = new AlumnoDaoOracleSQL();
+		AlumnoDaoMySQL daoMySQL = new AlumnoDaoMySQL();
 		
 		daoMySQL.updateAlumnoCalificacion(alumno, 5);
 		

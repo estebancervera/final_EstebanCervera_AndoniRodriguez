@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 
 
-public class AlumnoDaoOracleSQL implements DAO {
+public class AlumnoDaoMySQL implements DAO {
 	
 	
 
@@ -19,8 +19,8 @@ public class AlumnoDaoOracleSQL implements DAO {
 		
 			Connection con=null;  
 	        try{  
-	            Class.forName("oracle.jdbc.driver.OracleDriver"); 
-	            con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","dbunit","dbunit");  
+	            Class.forName("com.mysql.jdbc.Driver"); 
+	            con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/alumno","travis","");  
 	        }catch(Exception e){System.out.println(e);}  
 	        return con;  
 	        

@@ -6,7 +6,7 @@ public class App {
 		// TODO Auto-generated method stub
 
 		Alumno alumno = new Alumno(3, "Esteban C", 22, 8, "esteban@gmail.com");
-		AlumnoDaoOracleSQL oracle = new AlumnoDaoOracleSQL();
+		AlumnoDaoMySQL oracle = new AlumnoDaoMySQL();
 		
 		oracle.addAlumno(alumno);
 		System.out.println(oracle.getAllAlumnosCount());

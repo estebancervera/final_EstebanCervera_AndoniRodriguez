@@ -66,8 +66,9 @@ public class TestDeleteMERN {
 	    // VERIFY
 	    assertEquals(rows_after_delete.size(), rows_before_delete.size()-1);
 	    
-	    if (rows_after_delete.size() == rows_before_delete.size()-1){
+	    if (rows_after_delete.size() == rows_before_delete.size() - 1){
 		      ((JavascriptExecutor)driver).executeScript("sauce:job-result=passed");
+		      System.out.println("LOOOOOOOOOOL");
 		    }
 		    else {
 		      ((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");
