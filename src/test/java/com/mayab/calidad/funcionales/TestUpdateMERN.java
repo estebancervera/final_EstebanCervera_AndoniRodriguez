@@ -14,15 +14,26 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class TestUpdateMERN {
   private WebDriver driver;
   private StringBuffer verificationErrors = new StringBuffer();
-
+  public static final String URL = "https://esteban_cervera:0706ac1c-19d9-450a-a786-a5f40767e103@ondemand.us-west-1.saucelabs.com:443/wd/hub";
+  
   @Before
   public void setUp() throws Exception {
-	System.setProperty("webdriver.chrome.driver", "C:\\Users\\cerve\\Documents\\Calidad\\chromedriver.exe");
-	driver = new ChromeDriver();
+	  DesiredCapabilities caps = DesiredCapabilities.firefox();
+	    caps.setCapability("platform", "Windows 10");
+	    caps.setCapability("platform", "Linux");
+	    caps.setCapability("platform", "macOS 10.13");
+	    caps.setCapability("version", "latest");
+	    caps.setCapability("name", "Firefox");
+	    caps.setCapability("extendedDebugging", "true");
+	    caps.setCapability("buildNumber", "3.0");
+	    driver = new RemoteWebDriver(new java.net.URL(URL), caps);
+	    
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
   
