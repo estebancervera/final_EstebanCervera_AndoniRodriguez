@@ -97,16 +97,17 @@ public class TestDeleteMERN {
 	    driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/button[1]")).click();
 	    pause(2000);
 	    List<WebElement> rows_after_delete = table.findElements(By.tagName("tr"));
-	    // VERIFY
-	    assertEquals(rows_after_delete.size(), rows_before_delete.size()-1);
 	    
-	    if (rows_after_delete.size() == rows_before_delete.size() - 1){
+	    // VERIFY
+	    if (rows_after_delete.size() == rows_before_delete.size()-1){
 		      ((JavascriptExecutor)driver).executeScript("sauce:job-result=passed");
-		      System.out.println("LOOOOOOOOOOL");
+		      System.out.println("DELETE PASO");
 		    }
-		    else {
+		else {
 		      ((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");
 		    }
+	    
+	    assertEquals(rows_after_delete.size(), rows_before_delete.size()-1);
 		driver.quit();
 	    
 	  }

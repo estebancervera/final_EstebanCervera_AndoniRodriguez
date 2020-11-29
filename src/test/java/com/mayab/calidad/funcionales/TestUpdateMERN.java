@@ -147,17 +147,17 @@ public class TestUpdateMERN {
     
     
     String msg = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/form/div[4]/div/p")).getText();
-    assertEquals(msg, "Successfully updated!");
     
     if (msg.equals("Successfully updated!")){
     	System.out.println("UPDATE PASO");
 	      ((JavascriptExecutor)driver).executeScript("sauce:job-result=passed");
 	     
 	    }
-	    else {
+	else {
 	      ((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");
 	    }
     
+    assertEquals(msg, "Successfully updated!");
     deleteUser();
     
 	driver.quit();

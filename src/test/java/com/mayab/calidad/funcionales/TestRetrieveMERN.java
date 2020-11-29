@@ -105,38 +105,8 @@ public class TestRetrieveMERN  {
 		
 		
 		addUser();
-		
-		
-		 driver.get("https://mern-crud.herokuapp.com/");
-		    
-//		    // BUTTON
-//		    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
-//		    
-//		    // NAME
-//		    driver.findElement(By.name("name")).click();
-//		    driver.findElement(By.name("name")).clear();
-//		    driver.findElement(By.name("name")).sendKeys("Esteban");
-//		    
-//		    // EMAIL
-//		    driver.findElement(By.name("email")).click();
-//		    driver.findElement(By.name("email")).clear();
-//		    driver.findElement(By.name("email")).sendKeys("test@gmail.com");
-//		    
-//		    // AGE
-//		    driver.findElement(By.name("age")).click();
-//		    driver.findElement(By.name("age")).clear();
-//		    driver.findElement(By.name("age")).sendKeys("35");
-//		    
-//		    //GENDER
-//		    driver.findElement(By.xpath("//div[3]/div[2]/div/i")).click();
-//		    driver.findElement(By.xpath("//div[2]/div/div[2]/div")).click();
-//		    
-//		    // BUTTON
-//		    driver.findElement(By.xpath("//form/button")).click();
-//		    
-//		    pause(2000);
-		    
-		    
+
+		driver.get("https://mern-crud.herokuapp.com/");
 		
 	    WebElement table = driver.findElement(By.xpath("/html/body/div/div/div[2]/table"));
 	    pause(2000);
@@ -148,7 +118,7 @@ public class TestRetrieveMERN  {
 	   
 	    	for(int j = 0; j < columns.size()-1; j++) {
 	    		actualValues[j] = columns.get(j).getText();
-	    		System.out.println("i: " + i +  ",j: " + j + "---" + actualValues[j] ) ;
+	    		//System.out.println("i: " + i +  ",j: " + j + "---" + actualValues[j] ) ;
 	    	}
 	    	
 	    	if(Arrays.equals(expectedValues, actualValues)) {
@@ -157,19 +127,18 @@ public class TestRetrieveMERN  {
 	    	}
 	    	
 	    }
-	    System.out.println(expectedValues);
-	    System.out.println(actualValues);
-	    int confirmado = 0;
+
 	    for(int i = 0; i < expectedValues.length; i++) {
+	    	
+	    	if(expectedValues[i] != actualValues[i]) {
+	    		((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");
+	    	}
+	  
 	    	assertEquals(expectedValues[i], actualValues[i]);
-	    	if (expectedValues[i].equals(actualValues[i])){
-	    		confirmado ++;
-			      ((JavascriptExecutor)driver).executeScript("sauce:job-result=passed");
-			 }
+
 	    }
-	    if(confirmado != 4) {
-	    	((JavascriptExecutor)driver).executeScript("sauce:job-result=failed");
-	    }
+	    
+	    ((JavascriptExecutor)driver).executeScript("sauce:job-result=passed");
 	    deleteUser();
 		driver.quit();
 	    
