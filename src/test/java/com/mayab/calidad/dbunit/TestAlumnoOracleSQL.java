@@ -53,7 +53,7 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 	
 	@Test
 	public void testInsert() {
-		Alumno alumno = new Alumno(4, "Esteban C", 23, 9, "esteban@gmail.com");
+		Alumno alumno = new Alumno(4, "Esteban C", 233, 9, "esteban@gmail.com");
 		AlumnoDaoMySQL daoMySQL = new AlumnoDaoMySQL();
 		
 		daoMySQL.addAlumno(alumno);
