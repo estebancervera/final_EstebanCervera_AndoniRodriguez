@@ -53,7 +53,7 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 	
 	@Test
 	public void testInsert() {
-		Alumno alumno = new Alumno(4, "Esteban C", 233, 9, "esteban@gmail.com");
+		Alumno alumno = new Alumno(4, "Esteban C", 23, 9, "esteban@gmail.com");
 		AlumnoDaoMySQL daoMySQL = new AlumnoDaoMySQL();
 		
 		daoMySQL.addAlumno(alumno);
@@ -107,7 +107,8 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 	
 	@Test
 	public void testDelete() {
-		Alumno alumno = new Alumno(2, "Esteban 2", 22, 9, "esteban@gmail.com");
+		// Cambiamos el id de delete a 1 para probar que falle antes era 2
+		Alumno alumno = new Alumno(1, "Esteban 2", 22, 9, "esteban@gmail.com");
 		AlumnoDaoMySQL daoMySQL = new AlumnoDaoMySQL();
 		
 		daoMySQL.deleteAlumno(alumno);
@@ -164,7 +165,8 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 	
 	@Test
 	public void testGetAlumno() throws Exception {
-		Alumno alumno = new Alumno(3, "Esteban 3", 23, 10, "esteban@gmail.com");
+		// Cambiamos el id de update a 2 para probar que falle antes era 3
+		Alumno alumno = new Alumno(2, "Esteban 3", 23, 10, "esteban@gmail.com");
 		
 		//AlumnoDaoOracleSQL daoOracle = new AlumnoDaoOracleSQL();
 		
@@ -217,7 +219,8 @@ public class TestAlumnoOracleSQL extends DBTestCase {
 		Alumno alumno = new Alumno(3, "Esteban 3", 23, 10, "esteban@gmail.com");
 		AlumnoDaoMySQL daoMySQL = new AlumnoDaoMySQL();
 		
-		daoMySQL.updateAlumnoCalificacion(alumno, 5);
+		// Cambiamos la calificacion nueva a 7 para probar que falle antes era 5
+		daoMySQL.updateAlumnoCalificacion(alumno, 7);
 		
 		//verify
 		try {
