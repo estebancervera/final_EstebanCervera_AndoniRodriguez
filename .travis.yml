@@ -2,10 +2,7 @@ language: java
 services:
   - xvfb
   - mysql
-addons:
-  sauce_connect:
-    username: "esteban_cervera"
-    access_key: "0706ac1c-19d9-450a-a786-a5f40767e103"
+
 before_script:
   - "export DISPLAY=:99.0"
 before_install:
@@ -21,3 +18,7 @@ jobs:
     - script: mvn -Dtest=AllTests test
       name: "Functional Tests"
       install: skip
+      addons:
+        sauce_connect:
+          username: "esteban_cervera"
+          access_key: "0706ac1c-19d9-450a-a786-a5f40767e103"
