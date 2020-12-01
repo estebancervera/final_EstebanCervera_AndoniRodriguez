@@ -2,11 +2,11 @@ language: java
 services:
   - xvfb
   - mysql
-
 before_script:
   - "export DISPLAY=:99.0"
 before_install:
   - mysql -u root --password="" < scripts/setup.sql
+
 jobs:
   include:
     - stage: "Tests"
