@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dataset>
-<alumno id="1" name="Esteban 1" age="21" grade ="8" email="esteban@gmail.com" />
-<alumno id="3" name="Esteban 3" age="23" grade ="10" email="esteban@gmail.com" />
-</dataset>

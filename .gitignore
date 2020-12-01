@@ -1,6 +1,7 @@
 target
 /target/
 /target
+/bin
 
 .classpath
 .project
