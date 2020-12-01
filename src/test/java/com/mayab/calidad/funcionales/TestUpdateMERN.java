@@ -33,8 +33,7 @@ public class TestUpdateMERN {
 	    caps.setCapability("name", "Firefox");
 	    caps.setCapability("extendedDebugging", "true");
 	    caps.setCapability("buildNumber", "3.0");
-	    driver = new RemoteWebDriver(new java.net.URL(URL), caps);
-	    
+	    driver = new RemoteWebDriver(new java.net.URL(URL), caps); 
     //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
   
@@ -48,7 +47,6 @@ public class TestUpdateMERN {
   
   public void addUser() {
 	  driver.get("https://mern-crud.herokuapp.com/");
-	    
 	    // BUTTON
 	    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
 	    
