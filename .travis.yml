@@ -12,10 +12,12 @@ before_install:
   - mysql -u root --password="" < scripts/setup.sql
 jobs:
   include:
-    - stage: "Tests" # naming the Tests stage
-      name: "Unit Tests" # names the first Tests stage job
+    - stage: "Tests"
+      name: "Unit Tests"
+      install: skip
       script: mvn -Dtest=TestDAOMySql test
     - script: mvn -Dtest=TestAlumnoOracleSQL test
-      name: "Integration Tests" # names the second Tests stage job
+      name: "Integration Tests"
     - script: mvn -Dtest=AllTests test
       name: "Functional Tests"
+      install: skip
