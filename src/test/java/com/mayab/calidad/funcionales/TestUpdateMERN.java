@@ -145,7 +145,6 @@ public class TestUpdateMERN {
     driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/form/button")).click();
     pause(2000);
     
-    
     String msg = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/form/div[4]/div/p")).getText();
     
     if (msg.equals("Successfully updated!")){
