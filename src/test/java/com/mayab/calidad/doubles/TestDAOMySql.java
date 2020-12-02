@@ -66,7 +66,7 @@ public class TestDAOMySql {
 		database.addAlumno(alumno);
 		
 		
-		assertThat(database.getDatabase().size(), is(size )); //add + 1 to work
+		assertThat(database.getDatabase().size(), is(size + 1)); //add + 1 to work
 	}
 	
 	@Test
